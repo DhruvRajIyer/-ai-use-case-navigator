@@ -1,83 +1,106 @@
-# AI Use Case Navigator
+# 🧠 AI Use Case Navigator
 
-A Streamlit application that displays a searchable and filterable table of AI use cases across different companies and industries.
+A professional-grade **Streamlit dashboard** that lets users explore **real-world AI use cases** across top companies and industries — categorized by AI type, business function, and outcome.
 
-## Features
+> Built as part of Dhruv Iyer’s AI for Business Transformation portfolio.
 
-- Load and display AI use cases from CSV data
-- Filter by Business Function
-- Filter by AI Type
-- Search by company name or use case name
-- Interactive data table with source links
+---
 
-## Standardized Build Process
+## 🚀 Features
 
-This project includes multiple ways to set up and run the application:
+- ✅ Searchable & filterable use case table
+- ✅ Sidebar filters for **AI Type** and **Business Function**
+- ✅ Embedded outcome + source link for each row
+- ✅ CSV backend + slug columns for frontend filtering
+- ✅ Fully built in **Python** and **Streamlit**
 
-### Option 1: Using the setup script
+---
+
+## 🗂️ Dataset Structure
+
+Loaded from `Data/ai_use_case_navigator_cleaned.csv`  
+Key columns:
+
+| Column                   | Description                                                  |
+|--------------------------|--------------------------------------------------------------|
+| `company`                | Company that implemented the AI use case                     |
+| `use_case_name`          | Short title of the AI initiative                             |
+| `business_function`      | Function impacted (e.g., Marketing, HR, Supply Chain)        |
+| `ai_type`                | Type of AI used (e.g., NLP, Computer Vision, Forecasting)    |
+| `outcome`                | Business impact (e.g., cost savings, revenue growth)         |
+| `source_link`            | Link to original article/report                              |
+| `ai_type_slug`           | Lowercase tag for filtering                                  |
+| `business_function_slug` | Lowercase tag for filtering                                  |
+
+---
+
+## 🛠 Installation Options
+
+### ✅ Option 1: Basic Setup
 
 ```bash
-# Make the script executable
+git clone https://github.com/yourusername/ai-use-case-navigator.git
+cd ai-use-case-navigator
+pip install -r requirements.txt
+streamlit run app.py
+🧪 Option 2: One-Liner Setup Script
+If you have setup.sh or .venv1:
+
+bash
+Copy
+Edit
 chmod +x setup.sh
-
-# Run the setup script
 ./setup.sh
-```
+Or:
 
-This will create a virtual environment, install dependencies, and start the application.
-
-### Option 2: Using Make
-
-```bash
-# Set up the environment and install dependencies
-make setup
-
-# Run the application
-make run
-```
-
-Other available make commands:
-- `make install` - Install dependencies in the current environment
-- `make clean` - Remove virtual environment and cached files
-- `make help` - Show help message
-
-### Option 3: Manual setup with .venv1
-
-```bash
-# Make the script executable
+bash
+Copy
+Edit
 chmod +x .venv1
-
-# Run the script to create a virtual environment
 ./.venv1
+🔧 Tech Stack
+Python
 
-# Activate the virtual environment
-source .venv/bin/activate
+Streamlit
 
-# Install dependencies
-pip install -r requirements.txt
+Pandas
 
-# Run the application
-streamlit run app.py
-```
+CSV-based metadata
 
-### Option 4: Direct installation
+Optional: OpenAI + FAISS (Phase 2)
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+💼 Who’s It For?
+Digital Transformation Consultants
 
-# Run the application
-streamlit run app.py
-```
+AI Strategists & Analysts
 
-## Data Structure
+Business School Students
 
-The application uses data from `Data/ai_use_case_navigator_cleaned.csv` which contains the following columns:
-- company
-- use_case_name
-- business_function
-- ai_type
-- outcome
-- source_link
-- ai_type_slug
-- business_function_slug
+Product Managers exploring AI ROI
+
+🔮 Future Enhancements (Phase 2)
+ Add semantic search (via OpenAI + FAISS)
+
+ Add company/industry filter
+
+ Create industry-specific dashboards (e.g., Fashion, Mobility)
+
+ Enable exporting use cases (JSON/PDF)
+
+ Add expandable rows or modals for better UX
+
+🧑‍💻 Author
+Dhruv Iyer
+MSc AI for Business Transformation
+Passionate about real-world applications of AI in strategy, marketing, finance, and digital transformation.
+
+🔗 LinkedIn
+
+💻 GitHub
+
+📌 Live Demo (Optional)
+👉 Launch the App
+Replace with your actual deployed app link
+
+📄 License
+MIT License — free to use, remix, and build upon with attribution.
