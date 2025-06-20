@@ -65,16 +65,20 @@ The application reads from:
 
 ```bash
 Data/ai_use_case_navigator_cleaned.csv
-Columns:
-Column Name	Description
-company	Organization using AI
-use_case_name	Title of the AI use case
-business_function	Related business domain (e.g., HR, Finance)
-ai_type	Type of AI used (e.g., NLP, CV)
-outcome	Key result or benefit
-source_link	Link to the original article or report
-ai_type_slug	Slugified AI type (for filtering)
-business_function_slug	Slugified business function (for filtering)
+```
+
+### Columns:
+```bash
+Column-Name	                Description
+
+company	                   Organization using AI
+use_case_name	           Title of the AI use case
+business_function	       Related business domain (e.g., HR, Finance)
+ai_type	                   Type of AI used (e.g., NLP, CV)
+outcome	                   Key result or benefit
+source_link	               Link to the original article or report
+ai_type_slug	           Slugified AI type (for filtering)
+business_function_slug	   Slugified business function (for filtering)
 ```
 
 ### 📎 Requirements
