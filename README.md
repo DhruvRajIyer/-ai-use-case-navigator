@@ -30,9 +30,10 @@ You can set up and run the application in multiple ways:
 chmod +x setup.sh
 ./setup.sh
 Creates a virtual environment, installs dependencies, and runs the app.
+```
 
-✅ Option 2: Using Makefile
-bash
+### ✅ Option 2: Using Makefile
+```bash
 Copy
 Edit
 make setup     # Set up the environment and install dependencies
@@ -44,28 +45,25 @@ make install – Install dependencies
 make clean – Remove .venv and cached files
 
 make help – Display help message
-
-✅ Option 3: Manual Setup via .venv1
-bash
-Copy
-Edit
+```
+### ✅ Option 3: Manual Setup via .venv1
+```bash
 chmod +x .venv1
 ./.venv1
 source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py
-✅ Option 4: Direct Installation
-bash
-Copy
-Edit
+streamlit run app.py    
+```
+### ✅ Option 4: Direct Installation
+```bash
 pip install -r requirements.txt
 streamlit run app.py
-📊 Data Structure
+```
+
+### 📊 Data Structure
 The application reads from:
 
-bash
-Copy
-Edit
+```bash
 Data/ai_use_case_navigator_cleaned.csv
 Columns:
 Column Name	Description
@@ -77,16 +75,18 @@ outcome	Key result or benefit
 source_link	Link to the original article or report
 ai_type_slug	Slugified AI type (for filtering)
 business_function_slug	Slugified business function (for filtering)
+```
 
-📎 Requirements
+### 📎 Requirements
 Python 3.8+
 
 Streamlit
 
 Pandas
+
 (Install everything using requirements.txt)
 
-💼 Ideal For
+### 💼 Ideal For
 Business analysts exploring industry use of AI
 
 AI/ML enthusiasts tracking use case trends
@@ -95,25 +95,24 @@ Product teams benchmarking competitor applications
 
 Educators showcasing real-world AI case studies
 
-🤝 Contributing
+### 🤝 Contributing
 We welcome all contributions! To get started:
 
-bash
-Copy
-Edit
+```bash
 # Fork the repo and clone it
 git clone https://github.com/yourusername/ai-use-case-navigator.git
 cd ai-use-case-navigator
 Feel free to open issues or submit PRs 🚀
+```
 
-📄 License
+### 📄 License
 This project is licensed under the MIT License.
 See the LICENSE file for details.
 
-📸 Demo (Optional)
+### 📸 Demo (Optional)
 Add a screenshot or GIF of the app in use:
 
-🔗 Related
+### 🔗 Related
 Streamlit Docs
 
 Awesome AI Use Cases
