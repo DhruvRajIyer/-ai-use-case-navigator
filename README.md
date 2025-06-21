@@ -1,8 +1,12 @@
-# 🚀 AI Use Case Navigator
+# AI Use Case Navigator
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.12+-brightgreen.svg)
-![Streamlit](https://img.shields.io/badge/built%20with-Streamlit-orange)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python Version](https://img.shields.io/badge/Python-3.12%2B-blue)
+![Built with Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-orange)
+![AI Powered](https://img.shields.io/badge/AI%20Assistant-OpenRouter-red)
+![Semantic Search](https://img.shields.io/badge/Semantic%20Search-SentenceTransformer-blueviolet)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-ff69b4)
 
 **Problem Statement:**  
 Despite the widespread adoption of AI across industries, discovering and exploring real-world use cases remains fragmented. Researchers, business leaders, and developers lack a centralized, interactive platform to benchmark, analyze, and draw inspiration from successful AI implementations.
@@ -14,7 +18,7 @@ Despite the widespread adoption of AI across industries, discovering and explori
 
 ## 📸 Demo
 
-![AI Use Case Navigator Demo](https://github.com/yourusername/ai-use-case-navigator/assets/demo.gif)
+![AI Use Case Navigator Demo](https://github.com/DhruvRajIyer/-ai-use-case-navigator/assets/demo.gif)
 
 ---
 
