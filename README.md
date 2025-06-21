@@ -44,9 +44,11 @@ Despite the widespread adoption of AI across industries, discovering and explori
 | Frontend (UI)    | **Streamlit**, custom theming, interactive widgets                                 |
 | Backend          | **Pandas**, **FAISS**, **SentenceTransformers**, **OpenRouter API**                |
 | AI Integration   | - **Semantic Embeddings**: `all-MiniLM-L6-v2` (via SentenceTransformer)  
-                   - **Natural Language QA**: OpenRouter API integration for assistant responses         |
-| Data Processing  | CSV ingestion, cleaning scripts, slug generation, duplicate handling               |
-| Storage & Caching| Pickle-based caching for FAISS index and embedding reuse                           |
+                     - **Natural Language QA**: OpenRouter API integration for assistant responses |
+                    
+| Data Processing | CSV ingestion, cleaning scripts, slug generation, duplicate handling |
+
+| Storage & Caching| Pickle-based caching for FAISS index and embedding reuse |
 
 ---
 
