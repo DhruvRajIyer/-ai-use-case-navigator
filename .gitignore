@@ -29,4 +29,3 @@ Thumbs.db
 # FAISS index and embedding cache
 Data/faiss_index.pkl
 Data/embedding_cache.pkl
-.streamlit/secrets.toml
