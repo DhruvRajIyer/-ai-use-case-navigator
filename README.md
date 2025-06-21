@@ -140,19 +140,33 @@ Python 3.12+
 
 (Install everything using requirements.txt)
 
-### 🔑 API Keys
+### 🔑 API Keys Setup
 
-To use the AI Assistant functionality, you need to set your OpenRouter API key in the `.streamlit/secrets.toml` file:
+#### OpenRouter API (for AI Assistant)
+To use the AI assistant feature, you need to set up an OpenRouter API key:
+
+1. Sign up at [OpenRouter](https://openrouter.ai/) and get your API key
+2. Add your key to `.streamlit/secrets.toml`:
 
 ```toml
-# .streamlit/secrets.toml
-OPENROUTER_API_KEY = "your-openrouter-api-key"
+OPENROUTER_API_KEY = "your-api-key-here"
+```
+
+#### Logo.dev API (for Company Logos)
+To display company logos in the UI, you need a Logo.dev API token:
+
+1. Sign up at [Logo.dev](https://logo.dev/) and get your API token
+2. Add your token to `.streamlit/secrets.toml`:
+
+```toml
+LOGO_DEV_TOKEN = "your-token-here"
 ```
 
 Alternatively, you can set it as an environment variable:
 
 ```bash
 export OPENROUTER_API_KEY="your-openrouter-api-key"
+export LOGO_DEV_TOKEN="your-logo-dev-token"
 ```
 
 You can get an API key by signing up at [OpenRouter.ai](https://openrouter.ai/).

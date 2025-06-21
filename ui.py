@@ -21,15 +21,37 @@ def render_sidebar_filters(df):
     """
     st.sidebar.header("Filters")
     
-    # Business Function filter
-    business_functions = ["All"] + sorted(df["business_function"].unique().tolist())
+    # Business Function filter - with error handling
+    try:
+        if 'business_function' in df.columns:
+            # Get unique values, handling potential NaN values
+            bf_values = df['business_function'].dropna().unique()
+            business_functions = ["All"] + sorted([str(bf) for bf in bf_values])
+        else:
+            st.sidebar.warning("Business Function data not available")
+            business_functions = ["All"]
+    except Exception as e:
+        st.sidebar.error(f"Error loading business functions: {str(e)}")
+        business_functions = ["All"]
+        
     selected_business_function = st.sidebar.selectbox(
         "Business Function",
         business_functions
     )
     
-    # AI Type filter
-    ai_types = ["All"] + sorted(df["ai_type"].unique().tolist())
+    # AI Type filter - with error handling
+    try:
+        if 'ai_type' in df.columns:
+            # Get unique values, handling potential NaN values
+            ai_values = df['ai_type'].dropna().unique()
+            ai_types = ["All"] + sorted([str(ai) for ai in ai_values])
+        else:
+            st.sidebar.warning("AI Type data not available")
+            ai_types = ["All"]
+    except Exception as e:
+        st.sidebar.error(f"Error loading AI types: {str(e)}")
+        ai_types = ["All"]
+        
     selected_ai_type = st.sidebar.selectbox(
         "AI Type",
         ai_types
@@ -66,6 +88,16 @@ def render_card(row, col, similarity_score=None):
         with st.container():
             # Add custom border styling
             st.markdown("<div class='card'>", unsafe_allow_html=True)
+            
+            # Display company logo with fallback to NA.jpg
+            logo_url = row.get('company_logo', '')
+            if pd.isna(logo_url) or not logo_url:
+                logo_url = 'assets/NA.jpg'
+                
+            st.markdown(
+                f"<div style='text-align: center;'><img src='{logo_url}' width='100' onerror=\"this.onerror=null; this.src='assets/NA.jpg';\"></div>",
+                unsafe_allow_html=True
+            )
             
             # Card header
             st.markdown(f"### {row['use_case_name']}")

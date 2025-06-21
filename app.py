@@ -10,7 +10,7 @@ import pandas as pd
 import os
 
 # Import our modules
-from data_utils import load_data, filter_data, get_unique_values, prepare_display_dataframe
+from data_utils import load_data, filter_data, get_unique_values, prepare_display_dataframe, generate_logo_url_column
 from ui import render_sidebar_filters, render_search_ui, render_cards, render_table, inject_custom_css
 from search import semantic_search
 from llm_router import call_openrouter
@@ -29,8 +29,13 @@ inject_custom_css()
 def main():
     st.title("AI Use Case Navigator")
     
-    # Load data
-    df = load_data()
+    # Load data without removing duplicates
+    df = load_data(remove_duplicates=False)
+    
+    # Add company logo URLs
+    # Get token from secrets if available, otherwise use placeholder
+    logo_token = st.secrets.get("LOGO_DEV_TOKEN", "YOUR_TOKEN")
+    df = generate_logo_url_column(df, token=logo_token)
     
     # Sidebar filters
     selected_business_function, selected_ai_type, show_as_table = render_sidebar_filters(df)
