@@ -4,7 +4,7 @@
 
 # Configuration
 VENV_NAME=".venv"
-PYTHON_VERSION="python3"
+PYTHON_VERSION="python3.12"
 REQUIREMENTS_FILE="requirements.txt"
 APP_FILE="app.py"
 
@@ -15,13 +15,13 @@ NC='\033[0m' # No Color
 
 # Check if Python is installed
 if ! command -v $PYTHON_VERSION &> /dev/null; then
-    echo -e "${YELLOW}Python not found. Please install Python 3.${NC}"
+    echo -e "${YELLOW}Python 3.12 not found. Please install Python 3.12 or higher.${NC}"
     exit 1
 fi
 
 # Create virtual environment if it doesn't exist
 if [ ! -d "$VENV_NAME" ]; then
-    echo -e "${GREEN}Creating virtual environment...${NC}"
+    echo -e "${GREEN}Creating virtual environment with Python 3.12...${NC}"
     $PYTHON_VERSION -m venv $VENV_NAME
     echo -e "${GREEN}Virtual environment created.${NC}"
 else

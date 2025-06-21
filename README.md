@@ -1,7 +1,7 @@
 ## 🚀 AI Use Case Navigator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-ff4b4b.svg)](https://streamlit.io/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/ai-use-case-navigator/pulls)
 [![Last Commit](https://img.shields.io/github/last-commit/yourusername/ai-use-case-navigator)](https://github.com/yourusername/ai-use-case-navigator/commits)
@@ -12,11 +12,14 @@ A **Streamlit** application that showcases real-world **AI use cases** across va
 
 ## 🌟 Features
 
-- 🔍 **Search** by company or use case name  
+- 🔍 **Keyword Search** by company, use case name, or description  
+- 🔮 **Semantic Search** using SentenceTransformer embeddings to find similar use cases
+- 💬 **AI Assistant** powered by OpenRouter for answering questions about AI use cases
 - 🧠 **Filter** by Business Function and AI Type  
 - 📊 **Interactive table** with source links for each entry  
-- 📁 Loads data from a clean CSV file  
-- 💡 Highlights use case outcomes and AI adoption trends
+- 🎨 **Card Layout** with expandable details and colored tags
+- 📁 **Cached Data Loading** for improved performance
+- 💡 **Highlights** use case outcomes and AI adoption trends
 
 ---
 
@@ -46,10 +49,9 @@ make clean – Remove .venv and cached files
 
 make help – Display help message
 ```
-### ✅ Option 3: Manual Setup via .venv1
+### ✅ Option 3: Manual Virtual Environment Setup
 ```bash
-chmod +x .venv1
-./.venv1
+python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run app.py    
@@ -69,26 +71,91 @@ Data/ai_use_case_navigator_cleaned.csv
 
 ### Columns:
 ```bash
-Column-Name	                Description
+Column-Name                Description
 
-company	                   Organization using AI
-use_case_name	           Title of the AI use case
-business_function	       Related business domain (e.g., HR, Finance)
-ai_type	                   Type of AI used (e.g., NLP, CV)
-outcome	                   Key result or benefit
-source_link	               Link to the original article or report
-ai_type_slug	           Slugified AI type (for filtering)
-business_function_slug	   Slugified business function (for filtering)
+company                   Organization using AI
+use_case_name             Title of the AI use case
+business_function         Related business domain (e.g., HR, Finance)
+ai_type                   Type of AI used (e.g., NLP, CV)
+outcome                   Key result or benefit
+source_link               Link to the original article or report
+ai_type_slug              Slugified AI type (for filtering)
+business_function_slug    Slugified business function (for filtering)
 ```
 
+### 🧩 Application Structure
+
+The application is modularized into several components:
+
+- `app.py` - Main application entry point
+- `data_utils.py` - Data loading and processing utilities
+- `search.py` - Semantic search functionality using SentenceTransformer embeddings and FAISS
+- `ui.py` - UI components and rendering functions
+- `llm_router.py` - OpenRouter API integration for AI assistant
+- `.streamlit/config.toml` - Custom theme configuration
+- `.streamlit/secrets.toml` - API keys and secrets storage
+
+### 🧹 Data Cleaning
+The repository includes a data cleaning script to standardize CSV files:
+
+```bash
+python3 datacleaner.py input_file.csv -o output_file.csv
+```
+
+The script performs the following operations:
+- Standardizes column names (e.g., "AI type" → "ai_type")
+- Removes duplicate entries
+- Generates slugs for AI types and business functions
+- Ensures all required columns exist
+
+Options:
+- `input_file.csv`: Path to the input CSV file (required)
+- `-o, --output`: Path to the output CSV file (optional, generates timestamped file if not specified)
+
+### 🔄 Rebuilding the Search Index
+If you encounter dimension mismatch errors or want to force rebuild the FAISS index:
+
+```bash
+# Simply delete these files and restart the app
+rm Data/faiss_index.pkl Data/embedding_cache.pkl
+
+# Then restart the Streamlit app
+streamlit run app.py
+```
+
+The app will automatically:
+- Detect that the index files are missing
+- Regenerate embeddings using the SentenceTransformer model
+- Create a new FAISS index for semantic search
+
 ### 📎 Requirements
-Python 3.8+
+Python 3.12+
 
-Streamlit
-
-Pandas
+- Streamlit
+- Pandas
+- SentenceTransformer (for embeddings generation)
+- FAISS (for similarity search)
+- Requests (for OpenRouter API calls)
+- NumPy, SciPy, tqdm (for data processing)
 
 (Install everything using requirements.txt)
+
+### 🔑 API Keys
+
+To use the AI Assistant functionality, you need to set your OpenRouter API key in the `.streamlit/secrets.toml` file:
+
+```toml
+# .streamlit/secrets.toml
+OPENROUTER_API_KEY = "your-openrouter-api-key"
+```
+
+Alternatively, you can set it as an environment variable:
+
+```bash
+export OPENROUTER_API_KEY="your-openrouter-api-key"
+```
+
+You can get an API key by signing up at [OpenRouter.ai](https://openrouter.ai/).
 
 ### 💼 Ideal For
 Business analysts exploring industry use of AI
