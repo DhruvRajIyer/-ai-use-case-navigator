@@ -18,7 +18,7 @@ Despite the widespread adoption of AI across industries, discovering and explori
 
 ## 📸 Demo
 
-![AI Use Case Navigator Demo](https://github.com/DhruvRajIyer/-ai-use-case-navigator/assets/demo.gif)
+![AI Use Case Navigator Demo](https://github.com/DhruvRajIyer/-ai-use-case-navigator/assets/demo.png)
 
 ---
 
